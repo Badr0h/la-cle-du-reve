@@ -3,6 +3,9 @@
 import { FormEvent, useState } from "react";
 import { biens, whatsappLink } from "@/lib/biens";
 
+const champ =
+  "h-14 w-full border border-filet bg-brume px-4 text-lg text-encre focus:border-bande focus:bg-papier";
+
 export function VisitForm() {
   const [error, setError] = useState("");
 
@@ -31,15 +34,19 @@ export function VisitForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="grid gap-4">
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form
+      onSubmit={onSubmit}
+      noValidate
+      className="grid gap-5 bg-papier p-5 shadow-[8px_8px_0_#0b4f88] sm:p-8"
+    >
+      <div className="grid gap-5 sm:grid-cols-2">
         <label className="grid min-w-0 gap-2 text-lg">
           Nom
           <input
             name="nom"
             type="text"
             autoComplete="name"
-            className="h-14 w-full border border-encre bg-papier px-4 text-lg"
+            className={champ}
           />
         </label>
         <label className="grid min-w-0 gap-2 text-lg">
@@ -49,7 +56,7 @@ export function VisitForm() {
             type="tel"
             autoComplete="tel"
             inputMode="tel"
-            className="h-14 w-full border border-encre bg-papier px-4 text-lg"
+            className={champ}
           />
         </label>
       </div>
@@ -58,24 +65,28 @@ export function VisitForm() {
         <select
           name="bien"
           defaultValue={biens[0]?.titre}
-          className="h-14 w-full min-w-0 border border-encre bg-papier px-4 text-lg"
+          className={champ}
         >
           {biens.map((bien) => (
             <option key={bien.id} value={bien.titre}>
-              {bien.quartier}
+              {bien.statut}, {bien.quartier}
             </option>
           ))}
           <option value="Un autre bien">Un autre bien</option>
         </select>
       </label>
       {error ? (
-        <p role="alert" className="text-lg text-toit">
+        <p role="alert" className="text-lg font-semibold text-toit">
           {error}
         </p>
-      ) : null}
+      ) : (
+        <p className="text-base leading-relaxed">
+          Rien n’est enregistré ici. Le message s’ouvre dans WhatsApp.
+        </p>
+      )}
       <button
         type="submit"
-        className="mt-2 h-14 bg-bande px-6 text-lg font-semibold text-white sm:w-fit sm:px-8"
+        className="h-14 bg-bande text-lg font-semibold text-white hover:bg-[#083866]"
       >
         Envoyer sur WhatsApp
       </button>

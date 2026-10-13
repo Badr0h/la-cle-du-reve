@@ -6,8 +6,10 @@
   --color-bande: #0b4f88;
   --color-encre: #1c1c1c;
   --color-papier: #ffffff;
-  --color-filet: #e6e6e6;
+  --color-brume: #e7eef6;
+  --color-filet: #d3deea;
   --font-sans: var(--font-figtree), sans-serif;
+  --font-display: var(--font-fraunces), serif;
 }
 
 html {
@@ -27,7 +29,7 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-encre);
+  outline: 3px solid var(--color-bande);
   outline-offset: 3px;
 }
 
