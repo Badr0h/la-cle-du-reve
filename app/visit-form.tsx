@@ -32,35 +32,37 @@ export function VisitForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-4">
-      <label className="grid gap-2 text-lg">
-        Nom
-        <input
-          name="nom"
-          type="text"
-          autoComplete="name"
-          className="h-14 border border-encre bg-papier px-4 text-lg"
-        />
-      </label>
-      <label className="grid gap-2 text-lg">
-        Téléphone
-        <input
-          name="telephone"
-          type="tel"
-          autoComplete="tel"
-          inputMode="tel"
-          className="h-14 border border-encre bg-papier px-4 text-lg"
-        />
-      </label>
-      <label className="grid gap-2 text-lg">
+      <div className="grid gap-4 sm:grid-cols-2">
+        <label className="grid min-w-0 gap-2 text-lg">
+          Nom
+          <input
+            name="nom"
+            type="text"
+            autoComplete="name"
+            className="h-14 w-full border border-encre bg-papier px-4 text-lg"
+          />
+        </label>
+        <label className="grid min-w-0 gap-2 text-lg">
+          Téléphone
+          <input
+            name="telephone"
+            type="tel"
+            autoComplete="tel"
+            inputMode="tel"
+            className="h-14 w-full border border-encre bg-papier px-4 text-lg"
+          />
+        </label>
+      </div>
+      <label className="grid min-w-0 gap-2 text-lg">
         Bien concerné
         <select
           name="bien"
           defaultValue={biens[0]?.titre}
-          className="h-14 border border-encre bg-papier px-4 text-lg"
+          className="h-14 w-full min-w-0 border border-encre bg-papier px-4 text-lg"
         >
           {biens.map((bien) => (
             <option key={bien.id} value={bien.titre}>
-              {bien.titre}
+              {bien.quartier}
             </option>
           ))}
           <option value="Un autre bien">Un autre bien</option>
@@ -73,7 +75,7 @@ export function VisitForm() {
       ) : null}
       <button
         type="submit"
-        className="mt-2 h-14 bg-bande px-6 text-lg font-semibold text-white"
+        className="mt-2 h-14 bg-bande px-6 text-lg font-semibold text-white sm:w-fit sm:px-8"
       >
         Envoyer sur WhatsApp
       </button>

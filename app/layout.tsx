@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { Figtree, Great_Vibes } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 
 const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-figtree",
-});
-
-const script = Great_Vibes({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-script",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${figtree.variable} ${script.variable}`}>
+    <html lang="fr" className={figtree.variable}>
       <body>{children}</body>
     </html>
   );

@@ -8,7 +8,6 @@
   --color-papier: #ffffff;
   --color-filet: #e6e6e6;
   --font-sans: var(--font-figtree), sans-serif;
-  --font-script: var(--font-script), cursive;
 }
 
 html {
@@ -32,6 +31,3 @@ body {
   outline-offset: 3px;
 }
 
-.script {
-  font-family: var(--font-script);
-}
